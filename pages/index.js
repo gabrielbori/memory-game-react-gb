@@ -72,7 +72,11 @@ const onCLicked = (i) => {
         {gameData.map((data, i) => {
           return <>
            <div className={flippedCards.includes(i) || nowFlipped.includes(i) ? 'cardClicked' : 'card'} onClick={()=>onCLicked(i)}>
-           <div key={i} className={flippedCards.includes(i) || nowFlipped.includes(i) ? 'cardContentClicked' : 'cardContent'}>{data}</div>
+           <div key={i} displayed={false} className={flippedCards.includes(i) || nowFlipped.includes(i) ? 'cardContentClicked' : 'cardContent'}>
+           {
+            flippedCards.includes(i) || nowFlipped.includes(i) ? data : '**'
+           }
+           </div>
            </div>
           </>
         })}
